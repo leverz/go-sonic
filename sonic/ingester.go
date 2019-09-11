@@ -21,8 +21,8 @@ type IngestBulkError struct {
 // Ingestable is used for altering the search index (push, pop and flush).
 type Ingestable interface {
 	// Push search data in the index.
-	// Command syntax PUSH <collection> <bucket> <object> "<text>"
-	Push(collection, bucket, object, text string) (err error)
+	// Command syntax PUSH <collection> <bucket> <object> "<text>" [LANG(<locale>)]?
+	Push(collection, bucket, object, text, lang string) (err error)
 
 	// BulkPush will execute N (parallelRoutines) goroutines at the same time to
 	// dispatch the records at best.
@@ -96,8 +96,8 @@ func NewIngester(host string, port int, password string) (Ingestable, error) {
 	}, nil
 }
 
-func (i ingesterChannel) Push(collection, bucket, object, text string) (err error) {
-	err = i.write(fmt.Sprintf("%s %s %s %s \"%s\"", push, collection, bucket, object, text))
+func (i ingesterChannel) Push(collection, bucket, object, text, lang string) (err error) {
+	err = i.write(fmt.Sprintf("%s %s %s %s \"%s\" LANG(%s)", push, collection, bucket, object, text, lang))
 	if err != nil {
 		return err
 	}

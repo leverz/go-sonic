@@ -62,7 +62,7 @@ func BenchmarkIngesterChannel_Push(b *testing.B) {
 			b.Fail()
 		}
 		for _, v := range records {
-			e := ingester.Push("test", "testBulk", v.Object, v.Text)
+			e := ingester.Push("test", "testBulk", v.Object, v.Text, "")
 			if e != nil {
 				b.Log(e)
 				b.Fail()
