@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/expectedsh/go-sonic/sonic"
+	"github.com/leverz/go-sonic/sonic"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 		panic(err)
 	}
 
-	results, _ := search.Query("movies", "general", "man", 10, 0)
+	results, _ := search.Query("movies", "general", "man", 10, 0, "")
 
 	fmt.Println(results)
 }
