@@ -1,5 +1,6 @@
 [![GoDoc](https://godoc.org/github.com/expectedsh/go-sonic/sonic?status.svg)](https://godoc.org/github.com/expectedsh/go-sonic/sonic) [![GoLint](https://img.shields.io/badge/golint-ok-green.svg)](https://go-lint.appspot.com/github.com/expectedsh/go-sonic/sonic)
 
+
 ## Go client for the sonic search backend
 
 This package implement all commands to work with sonic. If there is one missing, open an issue ! :)
